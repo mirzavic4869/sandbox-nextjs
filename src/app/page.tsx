@@ -1,8 +1,12 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 
-async function fetchPosts() {
+type Post = {
+  id: number;
+  title: string;
+  content: string;
+};
+
+async function fetchPosts(): Promise<Post[]> {
   const res = await fetch('/api/posts');
   if (!res.ok) {
     throw new Error('Failed to fetch posts');
@@ -11,11 +15,10 @@ async function fetchPosts() {
 }
 
 export default function Home() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
 
-  // Fetch posts on component mount
   useEffect(() => {
     const getPosts = async () => {
       try {
@@ -28,7 +31,6 @@ export default function Home() {
     getPosts();
   }, []);
 
-  // Add a new post
   const handleAddPost = async () => {
     try {
       const res = await fetch('/api/posts', {
@@ -41,7 +43,7 @@ export default function Home() {
         throw new Error('Failed to add post');
       }
 
-      const newPost = await res.json();
+      const newPost: Post = await res.json();
       setPosts((prev) => [...prev, newPost]);
       setTitle('');
       setContent('');
