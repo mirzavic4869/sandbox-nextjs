@@ -2,16 +2,16 @@ export const wordOptions = [
   {
     text: 'rumah',
     value: 'home',
-    image: 'gambar rumah',
+    image: '/next.svg',
   },
   {
     text: 'buku',
     value: 'book',
-    image: 'gambar buku',
+    image: '/file.svg',
   },
   {
     text: 'pintu',
     value: 'door',
-    image: 'gambar pintu',
+    image: '/globe.svg',
   },
 ];

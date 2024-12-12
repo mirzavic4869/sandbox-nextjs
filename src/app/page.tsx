@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { wordOptions } from './lib/data';
+import Image from 'next/image';
 
 type WordOption = {
   text: string;
@@ -34,7 +35,7 @@ export default function Home() {
       </select>
 
       <p>Selected Option: {selectedOption?.value}</p>
-      <p>Image: {selectedOption?.image}</p>
+      {selectedOption?.image ? <Image src={selectedOption.image} width={40} height={40} alt="gambar" /> : ''}
     </main>
   );
 }
