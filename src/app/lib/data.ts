@@ -1,17 +1,17 @@
 export const wordOptions = [
   {
     text: 'rumah',
-    value: 'home',
-    image: '/next.svg',
+    value: 'بَيْتٌ',
+    image: '/home.jpg',
   },
   {
     text: 'buku',
-    value: 'book',
-    image: '/file.svg',
+    value: 'كِتَابٌ',
+    image: '/book.jpg',
   },
   {
-    text: 'pintu',
-    value: 'door',
-    image: '/globe.svg',
+    text: 'masjid',
+    value: 'مَسْجِدٌ',
+    image: '/mosque.jpg',
   },
 ];

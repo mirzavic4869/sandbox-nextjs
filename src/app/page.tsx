@@ -20,22 +20,27 @@ export default function Home() {
   };
 
   return (
-    <main>
-      <h1>Home</h1>
-
-      <select onChange={onChange} value={selectedOption?.value || ''}>
-        <option value="" disabled>
-          Select an option
-        </option>
-        {wordOptions.map((option, index) => (
-          <option key={index} value={option.value}>
-            {option.text}
+    <main className="mx-auto flex flex-col items-center h-screen justify-center">
+      <h1 className="block bg-clip-text text-transparent font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center pb-8 bg-gradient-to-r from-green-600 via-blue-500 to-blue-900">Apa Bahasa Arabnya...</h1>
+      <div className="pb-8 lg:w-1/3 w-2/3">
+        <select className="bg-gray-800 border w-full border-gray-700 p-4 shadow-sm  outline-none rounded-lg" onChange={onChange} value={selectedOption?.value || ''}>
+          <option value="" disabled>
+            Pilih kata
           </option>
-        ))}
-      </select>
-
-      <p>Selected Option: {selectedOption?.value}</p>
-      {selectedOption?.image ? <Image src={selectedOption.image} width={40} height={40} alt="gambar" /> : ''}
+          {wordOptions.map((option, index) => (
+            <option key={index} value={option.value}>
+              {option.text}
+            </option>
+          ))}
+        </select>
+      </div>
+      {/* Card */}
+      {selectedOption && (
+        <div className="bg-gray-800 overflow-hidden rounded-lg border border-gray-700 p-4 shadow-sm transition hover:shadow-primary cursor-default">
+          {selectedOption?.image ? <Image className="aspect-[4/3] rounded-lg" src={selectedOption.image} width={200} height={200} alt="gambar" /> : ''}
+          <p className="text-center pt-6 pb-4 text-4xl font-bold">{selectedOption?.value}</p>
+        </div>
+      )}
     </main>
   );
 }
