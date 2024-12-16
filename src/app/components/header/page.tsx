@@ -23,7 +23,9 @@ export default function Header() {
 
   return (
     <nav className="flex justify-between items-center px-3 py-3 md:px-10 mx-auto max-w-7xl">
-      <h1 className="font-semibold text-xl sm:text-2xl">BahasaArUp</h1>
+      <h1 className="font-semibold text-xl sm:text-2xl">
+        <span>&#128218;</span> BahasaArUp
+      </h1>
       {/* Nav Desktop */}
       <ul className="sm:flex gap-6 hidden">
         {NavLink.map(({ menu, link }, index) => (
